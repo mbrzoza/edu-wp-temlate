@@ -9343,3 +9343,12 @@ a.list-group-item-danger.active:hover, a.list-group-item-danger.active:focus {
 .modal .close {
   color: #000;
 }
+
+
+.vertical_center {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}

@@ -38,14 +38,22 @@ $jquery_color_script = get_template_directory_uri() . "/inc/assets/js/jquery.col
 			columnElement.children().css("display", "block");
 			columnElement.children().css("margin", "auto");
 			columnElement.css("padding-top", padding_top + "px");
-			columnElement.mouseover(function() {
-				$(this).stop().animate({
-			        opacity: .5
+			var elementHeight = columnElement.height();
+			var elementWidth = columnElement.width();
+			columnElement.mouseenter(function() {
+				$(this).animate({
+					left: "-=5",
+					top: "-=5",
+					width: "+=5",
+					height: "+=5"
 			    });
 		    });
-			columnElement.mouseout(function() {
-				$(this).stop().animate({
-					opacity: 1
+			columnElement.mouseleave(function() {
+				$(this).animate({
+					left: "+=5",
+					top: "+=5",
+					width: "-=5",
+					height: "-=5"
 			    });
 		    });   
 		});

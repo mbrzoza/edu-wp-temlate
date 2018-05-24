@@ -117,6 +117,16 @@ add_action( 'after_setup_theme', 'wp_bootstrap_starter_content_width', 0 );
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
 function wp_bootstrap_starter_widgets_init() {
+    register_sidebar( array(
+        'name'          => 'Header',
+        'id'            => 'header-1',
+        'description'   => 'Add widgets here.',
+        'before_widget' => '<section id="%1$s" class="widget %2$s vertical_center" style="float: right;">',
+        'after_widget'  => '</section>',
+        'before_title'  => '<h3 class="widget-title">',
+        'after_title'   => '</h3>',
+    ) );
+    
 	register_sidebar( array(
 		'name'          => esc_html__( 'Sidebar', 'wp-bootstrap-starter' ),
 		'id'            => 'sidebar-1',

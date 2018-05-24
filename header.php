@@ -27,15 +27,23 @@
 	<header id="masthead" class="site-header navbar-static-top <?php echo wp_bootstrap_starter_bg_class(); ?>" role="banner">
         <div class="container">
             <nav class="navbar navbar-expand-xl p-0" style="display: block;">
-                <div class="navbar-brand" style="margin-bottom: 15px">
-                    <?php if ( get_theme_mod( 'wp_bootstrap_starter_logo' ) ): ?>
-                        <a href="<?php echo esc_url( home_url( '/' )); ?>">
-                            <img src="<?php echo esc_attr(get_theme_mod( 'wp_bootstrap_starter_logo' )); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>">
-                        </a>
-                    <?php else : ?>
-                        <a class="site-title" href="<?php echo esc_url( home_url( '/' )); ?>"><?php esc_url(bloginfo('name')); ?></a>
+                <div class="row" style="padding:0; margin: 0;">
+                    <div class="navbar-brand col-4" style="margin: 0 0 15px 0;padding:0;">
+                        <?php if ( get_theme_mod( 'wp_bootstrap_starter_logo' ) ): ?>
+                            <a href="<?php echo esc_url( home_url( '/' )); ?>">
+                                <img src="<?php echo esc_attr(get_theme_mod( 'wp_bootstrap_starter_logo' )); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>">
+                            </a>
+                        <?php else : ?>
+                            <a class="site-title" href="<?php echo esc_url( home_url( '/' )); ?>"><?php esc_url(bloginfo('name')); ?></a>
+                        <?php endif; ?>
+    
+                    </div>
+                    
+                    <?php if ( is_active_sidebar( 'header-1' ) ) : ?>
+                        <div class="widget-area col-8" role="complementary" style="margin-bottom: 15px;padding:0;">
+                        	<?php dynamic_sidebar( 'header-1' ); ?>
+                        </div>
                     <?php endif; ?>
-
                 </div>
 
                 <?php
@@ -54,7 +62,7 @@
                 
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
-                </button>
+                </button>                
 
             </nav>
             
