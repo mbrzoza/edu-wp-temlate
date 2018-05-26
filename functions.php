@@ -165,6 +165,7 @@ function wp_bootstrap_starter_widgets_init() {
     ) );
     
     register_widget( 'quick_access' );
+    register_widget( 'featured_posts_widget' );
 }
 add_action( 'widgets_init', 'wp_bootstrap_starter_widgets_init' );
 
@@ -249,7 +250,15 @@ function wp_bootstrap_starter_password_form() {
 }
 add_filter( 'the_password_form', 'wp_bootstrap_starter_password_form' );
 
-require get_template_directory() . '/quick-access.php';
+if (!class_exists( 'quick_access' )) {
+    require_once get_template_directory() . '/quick-access.php';
+}
+
+if (!class_exists( 'featured_posts_widget' )) {
+    require_once get_template_directory() . '/featured.php';
+}
+
+//require get_template_directory() . '/featured.php';
 
 /**
  * Implement the Custom Header feature.

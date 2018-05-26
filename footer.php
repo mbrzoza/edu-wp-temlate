@@ -20,7 +20,7 @@
             <div class="site-info">
                 &copy; <?php echo date('Y'); ?> <?php echo '<a href="'.home_url().'">'.get_bloginfo('name').'</a>'; ?>
                 <span class="sep"> | </span>
-                <a class="credits" href="https://afterimagedesigns.com/wp-bootstrap-starter/" target="_blank" title="Wordpress Technical Support" alt="Bootstrap Wordpress Theme"><?php echo esc_html__('Bootstrap Wordpress Theme','wp-bootstrap-starter'); ?></a>
+                <a class="credits" href="top" target="_blank" title="Technical Support" alt="Martin Brzoza"><?php echo esc_html__('Martin Brzoza','wp-bootstrap-starter'); ?></a>
 
             </div><!-- close .site-info -->
 		</div>

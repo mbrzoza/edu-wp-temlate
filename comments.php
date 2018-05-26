@@ -94,16 +94,14 @@ if ( post_password_required() ) {
     <?php comment_form( $args = array(
         'id_form'           => 'commentform',  // that's the wordpress default value! delete it or edit it ;)
         'id_submit'         => 'commentsubmit',
-        'title_reply'       => __( 'Leave a Reply', 'wp-bootstrap-starter' ),  // that's the wordpress default value! delete it or edit it ;)
-        'title_reply_to'    => __( 'Leave a Reply to %s', 'wp-bootstrap-starter' ),  // that's the wordpress default value! delete it or edit it ;)
-        'cancel_reply_link' => __( 'Cancel Reply', 'wp-bootstrap-starter' ),  // that's the wordpress default value! delete it or edit it ;)
-        'label_submit'      => __( 'Post Comment', 'wp-bootstrap-starter' ),  // that's the wordpress default value! delete it or edit it ;)
+        'title_reply'       => __( 'Komentáře', 'wp-bootstrap-starter' ),  // that's the wordpress default value! delete it or edit it ;)
+        'title_reply_to'    => __( 'Komentovat %s', 'wp-bootstrap-starter' ),  // that's the wordpress default value! delete it or edit it ;)
+        'cancel_reply_link' => __( 'Zrušit komentář', 'wp-bootstrap-starter' ),  // that's the wordpress default value! delete it or edit it ;)
+        'label_submit'      => __( 'Komentovat', 'wp-bootstrap-starter' ),  // that's the wordpress default value! delete it or edit it ;)
 
-        'comment_field' =>  '<p><textarea placeholder="Start typing..." id="comment" class="form-control" name="comment" cols="45" rows="8" aria-required="true"></textarea></p>',
+        'comment_field' =>  '<p><textarea placeholder="Zanechte vzkaz..." id="comment" class="form-control" name="comment" cols="45" rows="8" aria-required="true"></textarea></p>',
 
-        'comment_notes_after' => '<p class="form-allowed-tags">' .
-            __( 'You may use these <abbr title="HyperText Markup Language">HTML</abbr> tags and attributes:', 'wp-bootstrap-starter' ) .
-            '</p><div class="alert alert-info">' . allowed_tags() . '</div>'
+        'comment_notes_after' => ''
 
         // So, that was the needed stuff to have bootstrap basic styles for the form elements and buttons
 

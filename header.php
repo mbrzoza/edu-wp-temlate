@@ -67,11 +67,21 @@
             </nav>
             
             <?php if(is_front_page() && !get_theme_mod( 'header_banner_visibility' )): ?>
-                <div id="page-sub-header" <?php if(has_header_image()) { ?>style="background-image: url('<?php header_image(); ?>');" <?php } ?>>
-                    <div class="container" style="height: 200px">
-                        
+                <?php if(has_header_image()): ?>
+                    <div id="carouselExampleSlidesOnly" class="carousel slide carousel-fade" data-ride="carousel">
+                      <div class="carousel-inner">
+                        <?php $firstSlide=true; ?>
+                        <?php foreach (get_uploaded_header_images() as $header_image):?>
+                            <div class="carousel-item <?php echo $firstSlide ? "active" : "";  ?>">
+                              <img class="d-block w-100" src="<?php echo $header_image['url']; ?>" alt="Slide">
+                            </div>
+                        <?php 
+                         $firstSlide=false;
+                         endforeach;
+                        ?>
+                      </div>
                     </div>
-                </div>
+                <?php endif; ?>
             <?php endif; ?>
         </div>
         

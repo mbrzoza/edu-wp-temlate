@@ -209,9 +209,11 @@ p {
 h1.entry-title {
     font-size: 21px;
     border-bottom: 1px solid #eaecef;
+    clear: none;
 }
 h2.entry-title {
     border-bottom: 1px solid #eaecef;
+    clear: none;
 }
 h3.widget-title {
     font-size: 1.2rem;

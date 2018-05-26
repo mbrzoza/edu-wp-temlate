@@ -21,7 +21,7 @@ class quick_access extends WP_Widget
     // Creating widget front-end
     public function widget($args, $instance)
     {
-        $title = apply_filters('widget_title', $instance['title']);
+        $title = apply_filters('widget_title', isset($instance['title']) ? $instance['title'] :"");
         
         // before and after widget arguments are defined by themes
         echo $args['before_widget'];

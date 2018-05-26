@@ -8,8 +8,6 @@ $img_signs = get_template_directory_uri() . "/inc/assets/img/icons/basic/basic_s
 $img_display = get_template_directory_uri() . "/inc/assets/img/icons/basic/basic_display.png";
 $img_sport = get_template_directory_uri() . "/inc/assets/img/icons/sport-centre-svgrepo-com.svg";
 $img_food = get_template_directory_uri() . "/inc/assets/img/icons/food-svgrepo-com.svg";
-
-$jquery_color_script = get_template_directory_uri() . "/inc/assets/js/jquery.color-2.1.2.min.js";
 ?>
 
 <style>
@@ -17,10 +15,6 @@ $jquery_color_script = get_template_directory_uri() . "/inc/assets/js/jquery.col
         margin: 0;
     }
 </style>
-
-<!-- 
-<script src="<?php $jquery_color_script?>"></script>
- -->
  
 <script>
 (function( $ ) {
@@ -32,6 +26,7 @@ $jquery_color_script = get_template_directory_uri() . "/inc/assets/js/jquery.col
 			var iconHeight = 50;
 			var padding_top = (columnHeight-iconHeight)/2;
 			columnElement.addClass("col bg-primary m-2");
+			columnElement.css("border-bottom", "solid 0px");
 			columnElement.height(columnHeight);
 			columnElement.children().height(iconHeight);
 			columnElement.children().tooltip();
@@ -42,18 +37,20 @@ $jquery_color_script = get_template_directory_uri() . "/inc/assets/js/jquery.col
 			var elementWidth = columnElement.width();
 			columnElement.mouseenter(function() {
 				$(this).animate({
-					left: "-=5",
-					top: "-=5",
-					width: "+=5",
-					height: "+=5"
+					borderWidth: 5
+					//left: "-=5",
+					//top: "-=5",
+					//width: "+=5",
+					//height: "+=5"
 			    });
 		    });
 			columnElement.mouseleave(function() {
 				$(this).animate({
-					left: "+=5",
-					top: "+=5",
-					width: "-=5",
-					height: "-=5"
+					borderWidth: 0
+					//left: "+=5",
+					//top: "+=5",
+					//width: "-=5",
+					//height: "-=5"
 			    });
 		    });   
 		});

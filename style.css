@@ -245,9 +245,11 @@ p {
 h1.entry-title {
   font-size: 1.31rem;
   border-bottom: 1px solid #eaecef;
-}
+  clear: none;
+  }
 h2.entry-title {
   border-bottom: 1px solid #eaecef;
+  clear: none;
 }
 h3.widget-title {
   font-size: 1.2rem;
@@ -928,6 +930,43 @@ body:not(.theme-preset-active) footer#colophon {
 .copyright a, footer#colophon a {
   color: inherit;
 }
+
+/***** @brzoza customizations */
+
+.more-link {
+	float: right;
+}
+
+.badge-primary a {
+	color: white;
+}
+
+.carousel-fade .carousel-inner .item {
+  opacity: 0;
+  -webkit-transition-property: opacity;
+  -moz-transition-property: opacity;
+  -o-transition-property: opacity;
+  transition-property: opacity;
+  transition-duration: 2s;
+}
+.carousel-fade .carousel-inner .active {
+  opacity: 1;
+}
+.carousel-fade .carousel-inner .active.left,
+.carousel-fade .carousel-inner .active.right {
+  left: 0;
+  opacity: 0;
+  z-index: 1;
+}
+.carousel-fade .carousel-inner .next.left,
+.carousel-fade .carousel-inner .prev.right {
+  opacity: 1;
+}
+.carousel-fade .carousel-control {
+  z-index: 2;
+}
+
+/*** End of customization*/
 
 @media screen and (max-width: 767px) {
   #masthead .navbar-nav > li > a {

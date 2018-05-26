@@ -51,16 +51,44 @@ if ( ! function_exists( 'wp_bootstrap_starter_entry_footer' ) ) :
 function wp_bootstrap_starter_entry_footer() {
 	// Hide category and tag text for pages.
 	if ( 'post' === get_post_type() ) {
+	    
+	    $time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
+	    if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
+	        $time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time>';
+	    }
+	    
+	    $time_string = sprintf( $time_string,
+	        esc_attr( get_the_date( 'c' ) ),
+	        esc_html( get_the_date() )
+	     );
+	    
+	    $posted_on = sprintf(
+	        esc_html_x( '%s', 'post date', 'wp-bootstrap-starter' ),
+	        '<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
+	        );
+	    echo '<span class="posted-on">' . $posted_on . '</span>';
+	    
+	    //$byline = sprintf(esc_html_x( 'Autor: %s', 'post author', 'wp-bootstrap-starter' ),
+	    //    '<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
+	    //    );
+	    //echo '<span class="byline"> ' . $byline . '</span>';
+	    
 		/* translators: used between list items, there is a space after the comma */
 		$categories_list = get_the_category_list( esc_html__( ', ', 'wp-bootstrap-starter' ) );
 		if ( $categories_list && wp_bootstrap_starter_categorized_blog() ) {
-			printf( '<span class="cat-links">' . esc_html__( 'Posted in %1$s', 'wp-bootstrap-starter' ) . '</span>', $categories_list ); // WPCS: XSS OK.
+			printf( '<span class="comments-link">' . esc_html__( ' | %1$s', 'wp-bootstrap-starter' ) . '</span>', $categories_list ); // WPCS: XSS OK.
 		}
 
+		//FIXME dead code
+		//$tags = implode( ',', array_map( function( $tag ){
+		//    return $tag->name;
+		//}, get_the_tags() ) );
+		
 		/* translators: used between list items, there is a space after the comma */
-		$tags_list = get_the_tag_list( '', esc_html__( ', ', 'wp-bootstrap-starter' ) );
+		$tags_list = get_the_tag_list( '<span class="badge badge-primary">', esc_html__( ', ', 'wp-bootstrap-starter' ), '</span>' );
+		//label label-default
 		if ( $tags_list ) {
-			printf( ' | <span class="tags-links">' . esc_html__( 'Tagged %1$s', 'wp-bootstrap-starter' ) . '</span>', $tags_list ); // WPCS: XSS OK.
+			printf( ' | ' . esc_html__( '%1$s', 'wp-bootstrap-starter' ), $tags_list ); // WPCS: XSS OK.
 		}
 	}
 
@@ -68,11 +96,11 @@ function wp_bootstrap_starter_entry_footer() {
 	edit_post_link(
 		sprintf(
 			/* translators: %s: Name of current post */
-			esc_html__( 'Edit %s', 'wp-bootstrap-starter' ),
+			esc_html__( 'Editovat článek %s', 'wp-bootstrap-starter' ),
 			the_title( '<span class="screen-reader-text">"', '"</span>', false )
 		),
-		' | <span class="edit-link">',
-		'</span>'
+		'<span class="edit-link" style="float:right;">',
+		'<span class="meta-nav">&rarr;</span> </span>'
 	);
 }
 endif;
